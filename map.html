@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <title>L200150095/Siti Martatiani M</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 500px;
+        width: 1200px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body align= 'center'>
+
+    <h1>Mata Kuliah Sistem Informasi Geografis</h1>
+    <h3>Kost Nusa Indah</h3>
+    <h3>Kelurahan Gonilan, Kartasura, Sukoharjo</h3>
+
+    <center>
+
+      <div id="map"></div>
+
+    </center>
+
+    <script>
+      function initMap() {
+      	var kostnusaindah = {lat: -7.5451168, lng: 110.7564063};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: kostnusaindah
+        });
+        var marker = new google.maps.Marker({
+          position: kostnusaindah,
+          map: map,
+          title: 'Kost Nusa Indah'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC2ZJ3oa0h0vVo25quMU0TNmuCN7nCiBE&callback=initMap">
+    </script>
+  </body>
+</html>
