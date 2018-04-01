@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title>Simple Map with StringLine</title>
+
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <meta charset="utf-8">
+
+    <style>
+
+      html, body {
+
+        height: 100%;
+
+        margin: 0;
+
+        padding: 0;
+
+      }
+
+      #map {
+
+        height: 100%;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="map"></div>
+
+    <script>
+
+
+
+var map;
+
+function initMap() {
+
+  map = new google.maps.Map(document.getElementById('map'), {
+
+    center: {lat: -6.2445873, lng: 106.7152949},
+
+    zoom: 10
+
+    });
+
+
+
+  map.data.addGeoJson({
+
+      "type": "FeatureCollection",
+
+  "features": [
+
+    {
+
+      "type": "Feature",
+
+      "properties": {},
+
+      "geometry": {
+
+        "type": "LineString",
+
+        "coordinates": [
+
+         [106.721344,-6.089998], [106.741844,-6.105995], [106.857552,-6.117222], [106.877823,-6.09872], [106.972267,-6.089283], [106.972893,-6.185318], [106.945602,-6.25469], [106.909164,-6.263964], [106.922569,-6.318879], [106.9132,-6.366885], [106.775894,-6.316725], [106.718864,-6.185875], [106.688759,-6.174209], [106.692719,-6.095602], [106.721344,-6.089998]
+
+        ]
+
+      }
+
+    }
+
+  ]});
+
+  map.data.setStyle({
+
+      strokeColor: "#FF0000",
+
+      strokeOpacity: 3,
+
+      strokeWeight: 2,
+
+      });
+
+}
+
+
+
+    </script>
+
+    <script async defer
+
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC2ZJ3oa0h0vVo25quMU0TNmuCN7nCiBE&libraries=visualization&callback=initMap">
+
+    </script>
+
+  </body>
+
+</html>
