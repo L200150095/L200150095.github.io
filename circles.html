@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <meta charset="utf-8">
+
+    <title>Circles</title>
+
+    <style>
+
+      /* Always set the map height explicitly to define the size of the div
+
+       * element that contains the map. */
+
+      #map {
+
+        height: 100%;
+
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+
+      html, body {
+
+        height: 100%;
+
+        margin: 0;
+
+        padding: 0;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <h1>10 Kecamatan di Kab.Bojonegoro</h1>
+
+    <div id="map"></div>
+
+    <script>
+
+      var citymap = {
+
+        Ngraho: {
+
+          center: {lat: -7.2554173, lng: 111.4704195},
+
+          population: 310390
+
+        },
+
+        Padangan: {
+
+          center: {lat: -7.1805916, lng: 111.5761082},
+
+          population: 247830
+
+        },
+
+        Purwosari: {
+
+          center: {lat: -7.2167185, lng: 111.6324253},
+
+          population: 221010
+
+        },
+
+        Kalitidu: {
+
+          center: {lat: -7.1522893, lng: 111.682694},
+
+          population: 219690
+
+        },
+
+       Mayangrejo: {
+
+          center: {lat: -7.1393621, lng: 111.7677303},
+
+          population: 212580
+
+        },
+
+       Malo: {
+
+          center: {lat: -7.1156681, lng: 111.6804033},
+
+          population: 180070
+
+        },
+
+       Kasiman: {
+
+          center: {lat: -7.1133524, lng: 111.57036},
+
+          population: 182310
+
+        },
+
+       Ngambon: {
+
+          center: {lat:-7.3257136, lng: 111.6808397},
+
+          population: 165670
+
+        },
+
+       Margomulyo: {
+
+          center: {lat: -7.3099614, lng: 111.4221599},
+
+          population: 151800 
+
+        },
+
+        Dander: {
+
+          center: {lat: -7.2211363,lng: 111.7750529},
+
+          population: 148900
+
+        }
+
+      };
+
+
+
+      function initMap() {
+
+        // Create the map.
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+
+          zoom: 11,
+
+          center: {lat: -7.2270701, lng: 111.514482},
+
+          mapTypeId: 'terrain'
+
+        });
+
+
+
+        // Construct the circle for each value in citymap.
+
+        // Note: We scale the area of the circle based on the population.
+
+        for (var city in citymap) {
+
+          // Add the circle for this city to the map.
+
+          var cityCircle = new google.maps.Circle({
+
+            strokeColor: '#33691E',
+
+            strokeOpacity: 0.5,
+
+            strokeWeight: 1,
+
+            fillColor: '#76FF03',
+
+            fillOpacity: 0.35,
+
+            map: map,
+
+            center: citymap[city].center,
+
+            radius: Math.sqrt(citymap[city].population) * 5
+
+          });
+
+        }
+
+      }
+
+    </script>
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC2ZJ3oa0h0vVo25quMU0TNmuCN7nCiBE&callback=initMap">
+
+    </script>
+
+  </body>
+
+</html>
